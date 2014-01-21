@@ -1,0 +1,34 @@
+{
+  "name": "translator-node",
+  "version": "0.0.1",
+  "description": "Fetches translations from ikr/translator-couch, and stringifies ICU messages within Mustache templates under node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests",
+    "posttest": "jshint ./src ./tests index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ikr/translator-node.git"
+  },
+  "keywords": [
+    "icu",
+    "i18n",
+    "translation",
+    "localization",
+    "internationalization",
+    "couchdb",
+    "mustache"
+  ],
+  "author": "Ivan Krechetov <ivan.krechetov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ikr/translator-node/issues"
+  },
+  "homepage": "https://github.com/ikr/translator-node",
+  "devDependencies": {
+    "jshint": "~2.4.1",
+    "mocha": "~1.17.0",
+    "sinon": "~1.7.3"
+  }
+}
