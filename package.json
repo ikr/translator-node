@@ -32,5 +32,6 @@
     "sinon": "~1.7.3"
   },
   "dependencies": {
+    "request": "~2.33.0"
   }
 }
