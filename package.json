@@ -32,6 +32,5 @@
     "sinon": "~1.7.3"
   },
   "dependencies": {
-    "cradle": "~0.6.6"
   }
 }
