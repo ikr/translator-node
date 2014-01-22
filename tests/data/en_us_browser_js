@@ -1,0 +1,118 @@
+(function(g){g.i18n = {};
+g.i18n['email/booking/confirmation'] = {};
+g.i18n['email/booking/confirmation']['subject'] = function(d){
+var r = "";
+r += "Reservation from ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["CHECK_IN_DATE"];
+r += " to ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["CHECK_OUT_DATE"];
+r += " in ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_NAME"];
+r += ", ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_CITY"];
+return r;
+};
+g.i18n['email/booking/confirmation/body'] = {};
+g.i18n['email/booking/confirmation/body']['fullText'] = function(d){
+var r = "";
+r += "Dear ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["NAME_PREFIX"];
+r += " ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["LAST_NAME"];
+r += ",\n\nYour reservation of ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+var lastkey_1 = "ROOM_COUNT";
+var k_1=d[lastkey_1];
+var off_0 = 0;
+var pf_0 = { 
+"one" : function(d){
+var r = "";
+r += "a room";
+return r;
+},
+"other" : function(d){
+var r = "";
+r += "" + (function(){ var x = k_1 - off_0;
+if( isNaN(x) ){
+throw new Error("MessageFormat: `"+lastkey_1+"` isnt a number.");
+}
+return x;
+})() + " rooms";
+return r;
+}
+};
+if ( pf_0[ k_1 + "" ] ) {
+r += pf_0[ k_1 + "" ]( d ); 
+}
+else {
+r += (pf_0[ MessageFormat.locale["en"]( k_1 - off_0 ) ] || pf_0[ "other" ] )( d );
+}
+r += " is confirmed,\nand is assigned a reference number ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["RESERVATION_ID"];
+r += ".\n\nCheck-in date:  ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["CHECK_IN_DATE"];
+r += "\nCheck-out date: ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["CHECK_OUT_DATE"];
+r += "\n\nHotel:      ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_NAME"];
+r += " ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_STARS"];
+r += "\nLocated at: ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_ADDRESS"];
+r += "\n            ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_ZIP"];
+r += " ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["HOTEL_CITY"];
+r += "\n\nIn case you have to cancel your reservation,\nplease go to ";
+if(!d){
+throw new Error("MessageFormat: No data passed to function.");
+}
+r += d["CANCELLATION_URL"];
+r += "\n\nWe wish you a pleasant stay, and hope to serve you again soon.\n\nKind regards,\nSwitzerland Travel Centre team.\n";
+return r;
+};
+})(window);
