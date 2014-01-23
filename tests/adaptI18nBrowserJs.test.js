@@ -35,10 +35,14 @@ describe('adaptI18nBrowserJs()', function () {
         assert.strictEqual(typeof i18n, 'object');
     });
 
-    it('results in namespaced and functional i18n functions', function () {
+    it('results in working namespaced i18n function for simple placeholders', function () {
         assert.strictEqual(
             i18n['email/booking/confirmation'].subject(data()),
             'Reservation from 22.01.2014 to 23.01.2014 in Hotel Wartmann, Winterthur'
         );
+    });
+
+    it('results in working namespaced i18n function for a more advanced ICU message', function () {
+        assert(/2 rooms/.test(i18n['email/booking/confirmation/body'].fullText(data())));
     });
 });
