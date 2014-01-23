@@ -44,7 +44,7 @@ throw new Error("MessageFormat: No data passed to function.");
 var lastkey_1 = "ROOM_COUNT";
 var k_1=d[lastkey_1];
 var off_0 = 0;
-var pf_0 = { 
+var pf_0 = {
 "one" : function(d){
 var r = "";
 r += "a room";
@@ -62,7 +62,7 @@ return r;
 }
 };
 if ( pf_0[ k_1 + "" ] ) {
-r += pf_0[ k_1 + "" ]( d ); 
+r += pf_0[ k_1 + "" ]( d );
 }
 else {
 r += (pf_0[ MessageFormat.locale["en"]( k_1 - off_0 ) ] || pf_0[ "other" ] )( d );
@@ -112,7 +112,7 @@ if(!d){
 throw new Error("MessageFormat: No data passed to function.");
 }
 r += d["CANCELLATION_URL"];
-r += "\n\nWe wish you a pleasant stay, and hope to serve you again soon.\n\nKind regards,\nSwitzerland Travel Centre team.\n";
+r += "\n\nWe wish you a pleasant stay, and hope to serve you again soon.\n\nKind regards,\nAperture Labs team.\n";
 return r;
 };
 })(window);
