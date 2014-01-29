@@ -1,6 +1,6 @@
 (function (g) {
 var MessageFormat = {locale: {}};
-MessageFormat.locale.en = function (n) {
+MessageFormat.locale.de = function (n) {
     if (n === 1) {
         return "one";
     }
@@ -73,7 +73,7 @@ if ( pf_0[ k_1 + "" ] ) {
 r += pf_0[ k_1 + "" ]( d );
 }
 else {
-r += (pf_0[ MessageFormat.locale["en"]( k_1 - off_0 ) ] || pf_0[ "other" ] )( d );
+r += (pf_0[ MessageFormat.locale["de"]( k_1 - off_0 ) ] || pf_0[ "other" ] )( d );
 }
 r += " is confirmed,\nand is assigned a reference number ";
 if(!d){

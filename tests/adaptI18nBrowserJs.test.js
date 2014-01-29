@@ -5,6 +5,7 @@ describe('adaptI18nBrowserJs()', function () {
 
         fs = require('fs'),
         enUsBrowserJs = fs.readFileSync(__dirname + '/data/en_us_browser_js', 'utf8'),
+        deChBrowserJs = fs.readFileSync(__dirname + '/data/de_ch_browser_js', 'utf8'),
 
         adaptI18nBrowserJs = require('../src/adaptI18nBrowserJs'),
 
@@ -27,22 +28,38 @@ describe('adaptI18nBrowserJs()', function () {
 
         i18n;
 
-    beforeEach(function () {
-        i18n = adaptI18nBrowserJs(enUsBrowserJs);
+    describe('in en_US case', function () {
+        beforeEach(function () {
+            i18n = adaptI18nBrowserJs(enUsBrowserJs);
+        });
+
+        it('returns an object', function () {
+            assert.strictEqual(typeof i18n, 'object');
+        });
+
+        it('results in working namespaced i18n function for simple placeholders', function () {
+            assert.strictEqual(
+                i18n['email/booking/confirmation'].subject(data()),
+                'Reservation from 22.01.2014 to 23.01.2014 in Hotel Wartmann, Winterthur'
+            );
+        });
+
+        it('results in working namespaced i18n function for a more advanced ICU message', function () {
+            assert(/2 rooms/.test(i18n['email/booking/confirmation/body'].fullText(data())));
+        });
     });
 
-    it('returns an object', function () {
-        assert.strictEqual(typeof i18n, 'object');
-    });
+    describe('in de_CH case', function () {
+        beforeEach(function () {
+            i18n = adaptI18nBrowserJs(deChBrowserJs);
+        });
 
-    it('results in working namespaced i18n function for simple placeholders', function () {
-        assert.strictEqual(
-            i18n['email/booking/confirmation'].subject(data()),
-            'Reservation from 22.01.2014 to 23.01.2014 in Hotel Wartmann, Winterthur'
-        );
-    });
+        it('returns an object', function () {
+            assert.strictEqual(typeof i18n, 'object');
+        });
 
-    it('results in working namespaced i18n function for a more advanced ICU message', function () {
-        assert(/2 rooms/.test(i18n['email/booking/confirmation/body'].fullText(data())));
+        it('results in working namespaced i18n function for a more advanced ICU message', function () {
+            assert(/2 rooms/.test(i18n['email/booking/confirmation/body'].fullText(data())));
+        });
     });
 });
