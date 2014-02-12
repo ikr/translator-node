@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/ikr/translator-node.png)](http://travis-ci.org/ikr/translator-node)
+
 # About
 
 Fetches translations from ikr/translator-couch, and stringifies ICU messages within Mustache
